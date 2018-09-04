@@ -216,7 +216,7 @@ img {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 0;
 }
 h1 {
   margin-left: 0;
@@ -331,16 +331,8 @@ hgroup {
   margin-bottom: 1.45rem;
 }
 ul {
-  margin-left: 1.45rem;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
-  list-style-position: outside;
-  list-style-image: none;
+  margin: 0px;
+  padding: 0px;
 }
 ol {
   margin-left: 1.45rem;
@@ -511,23 +503,23 @@ th {
   font-weight: bold;
 }
 li {
-  margin-bottom: calc(1.45rem / 2);
+  margin: 0px;
+  padding: 0px;
 }
 ol li {
   padding-left: 0;
 }
 ul li {
-  padding-left: 0;
+  margin: 0px;
+  padding: 0px;
 }
 li > ol {
-  margin-left: 1.45rem;
-  margin-bottom: calc(1.45rem / 2);
-  margin-top: calc(1.45rem / 2);
+  margin: 0px;
+  padding: 0px;
 }
 li > ul {
-  margin-left: 1.45rem;
-  margin-bottom: calc(1.45rem / 2);
-  margin-top: calc(1.45rem / 2);
+  margin: 0px;
+  padding: 0px;
 }
 blockquote *:last-child {
   margin-bottom: 0;
@@ -539,7 +531,8 @@ p *:last-child {
   margin-bottom: 0;
 }
 li > p {
-  margin-bottom: calc(1.45rem / 2);
+  margin: 0px;
+  padding: 0px;
 }
 code {
   font-size: 0.85rem;
