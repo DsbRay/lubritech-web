@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import 'bootstrap/dist/css/bootstrap.css';
 
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
