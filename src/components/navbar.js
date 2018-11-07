@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+// COMPONENTS
+import MobileDropdown from '../components/navbar-mobile'
 // UTILS
 import { color } from '../utils/baseStyles'
 // IMAGES
@@ -8,6 +10,7 @@ import lubritechLogo from '../../static/images/logo.png'
 
 
 const NavbarContainer = styled.div`
+  height: 60px;
   @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;
@@ -19,16 +22,20 @@ const NavbarContainer = styled.div`
 `;
 
 const Logo = styled.img`
+  width: 150px;
+  margin: 10px;
   @media (min-width: 768px) {
     width: 210px;
     padding: 10px;
     height: 100%;
     display: inline-block;
     vertical-align: middle;
+    margin: 0px;
   }
 `;
 
 const NavLinks = styled.div`
+  display: none;
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
@@ -65,16 +72,23 @@ const NavLinks = styled.div`
 const Dropdown = styled.div`
   position: absolute;
   z-index: -1;
+  font-size: 14px;
   width: 100%;
-  left:5px;
-  top: -35px;
+  left:-15px;
   text-align: center;
   border: 2px solid ${color.green};
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 10px;
-  transition: top 0.5s ease;
+  transform: translateY(-135px);
+  &.about {
+    width: 150px;
+  }
+  &.gallery {
+    left: 5px;
+  }
   &.active-dropdown {
-    top: 63px;
+    transform: translateY(20px);
+    z-index: 0;
   }
   ul {
     li {
@@ -88,12 +102,29 @@ const Dropdown = styled.div`
   }
 `;
 
+const ButtonDropdown = styled.div`
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  div {
+    width: 30px;
+    height: 5px;
+    background-color: ${color.blue};
+    margin: 5px 0;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 class Navbar extends Component {
   constructor(props) {
     super(props)
     this.state = {
       galleryDropdown: false,
-      aboutDropdown: false
+      aboutDropdown: false,
+      mobileMenuVisible: false
     }
   }
   render() {
@@ -102,20 +133,41 @@ class Navbar extends Component {
         <Link to="/">
           <Logo src={lubritechLogo} />
         </Link>
+        <ButtonDropdown onClick={this.toggleDropdownMenu}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </ButtonDropdown>
+
+        {this.state.mobileMenuVisible &&
+          <MobileDropdown />
+        }
 
         <NavLinks>
           <ul>
             <li onClick={this.onChangeAboutDropdown}>
               <p>About Us</p>
               <div className="underline"></div>
-              <Dropdown className={this.state.aboutDropdown ? 'active-dropdown': ''}>
+              <Dropdown className={this.state.aboutDropdown ? 'active-dropdown about' : 'about'}>
                 <ul>
-                  <li>link1</li>
-                  <li className="last">link2</li>
+                  <Link to="/about">
+                    <li>
+                      About
+                    </li>
+                  </Link>
+                  <Link to="/about">
+                    <li>
+                    Company Profile
+                    </li>
+                  </Link>
+                  <Link to="/gallery/videos">
+                    <li className="last">
+                    Presentation
+                  </li>
+                  </Link>
                 </ul>
               </Dropdown>
             </li>
-
             <Link to="/why-us" activeClassName="active-link">
               <li>
                 Why Us
@@ -133,10 +185,14 @@ class Navbar extends Component {
             <li onClick={this.onChangeGalleryDropdown}>
               <p>Gallery</p>
               <div className="underline"></div>
-              <Dropdown className={this.state.galleryDropdown ? 'active-dropdown': ''}>
+              <Dropdown className={this.state.galleryDropdown ? 'active-dropdown gallery' : 'gallery'}>
                 <ul>
-                  <li>link3</li>
-                  <li className="last">link4</li>
+                  <li>
+                    <Link to="/gallery">Images</Link>
+                  </li>
+                  <li className="last">
+                    <Link to="/gallery/videos">Videos</Link>
+                  </li>
                 </ul>
               </Dropdown>
             </li>
@@ -154,18 +210,24 @@ class Navbar extends Component {
     );
   }
   onChangeAboutDropdown = () => {
-    this.setState({ 
+    this.setState({
       aboutDropdown: !this.state.aboutDropdown,
       galleryDropdown: false
     })
-  } 
+  }
 
   onChangeGalleryDropdown = () => {
-    this.setState({ 
+    this.setState({
       galleryDropdown: !this.state.galleryDropdown,
       aboutDropdown: false
     })
-  } 
+  }
+
+  toggleDropdownMenu = () => {
+    this.setState({
+      mobileMenuVisible: !this.state.mobileMenuVisible
+    })
+  }
 }
 
 export default Navbar
