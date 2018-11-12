@@ -71,6 +71,7 @@ const NavLinks = styled.div`
 
 const Dropdown = styled.div`
   position: absolute;
+  background-color: ${color.white};
   z-index: -1;
   font-size: 14px;
   width: 100%;
