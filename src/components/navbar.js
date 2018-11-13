@@ -4,14 +4,43 @@ import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 import { color } from '../utils/baseStyles';
 import styled from 'styled-components';
 import logo from '../../static/images/logo.png';
+import MobileDropdown from './navbar-mobile';
+
 const NavbarContainer = styled.div`
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
   background-color: white!important;
 }
-  @media (min-width: 1200px) {
+.main-nav {
+  background-color: ${color.white};
+  margin-bottom: 0px;
+  min-height: 65px;
+    .nav-header {
+      .nav-brand {
+        img {
+          width: 140px;
+        }
+      }
+    }
+    .nav-list {
+      &.desktop {
+        display: none;
+      }
+      .nav-item {
+        a {
+          text-align: center;
+          &:hover {
+          }
+        }
+        .nav-dropdown {
+        }
+      }
+    }
+    .caret {
+      display: none;
+    }
+  }
+  @media (min-width: 768px) {
   .main-nav {
-    margin-bottom: 0px;
-    background-color: ${color.white};
     .nav-header {
       .nav-brand {
         height: auto;
@@ -24,6 +53,9 @@ const NavbarContainer = styled.div`
     }
     .nav-list {
       float: right;
+      &.desktop {
+        display: block;
+      }
       .nav-item {
         a {
           padding: 25px 15px;
@@ -42,11 +74,38 @@ const NavbarContainer = styled.div`
     .caret {
       color: ${color.blue};
     }
+    .mobile {
+      display: none;
+    }
   }
 }
 `;
 
+const DropdownButton = styled.div`
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  div {
+    height: 3px;
+    margin: 5px 0px;
+    background-color: ${color.blue};
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 class Header extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isDropdownVisible: false
+    }
+  }
   render() {
     return (
       <NavbarContainer>
@@ -55,12 +114,21 @@ class Header extends Component {
           <Navbar.Header className="nav-header">
             <Navbar.Brand className="nav-brand">
               <Link to="/">
-                <img src={logo}/>
+                <img src={logo} />
               </Link>
             </Navbar.Brand>
           </Navbar.Header>
-          <Nav className="nav-list">
 
+          <DropdownButton onClick={this.toggleDropdown}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </DropdownButton>
+
+          {this.state.isDropdownVisible &&
+            <MobileDropdown />
+          }
+          <Nav className="nav-list desktop">
             <NavDropdown title="About Us" id="basic-nav-dropdown" className="nav-item">
               <MenuItem className="dropdown-item" href="/about">About Us</MenuItem>
               <MenuItem className="dropdown-item">Company Profile</MenuItem>
@@ -68,27 +136,33 @@ class Header extends Component {
             </NavDropdown>
 
             <NavItem href="/why-us" className="nav-item">
-                Why Us?
+              Why Us?
             </NavItem>
 
             <NavItem href="/products" className="nav-item">
-                Products
+              Products
             </NavItem>
 
-             <NavDropdown title="Gallery" id="basic-nav-dropdown" className="nav-item">
+            <NavDropdown title="Gallery" id="basic-nav-dropdown" className="nav-item">
               <MenuItem className="dropdown-item" href="/gallery">Images</MenuItem>
               <MenuItem className="dropdown-item" href="/gallery/videos">Videos</MenuItem>
             </NavDropdown>
 
-             <NavItem href="/downloads" className="nav-item">
-                Downloads
+            <NavItem href="/downloads" className="nav-item">
+              Downloads
             </NavItem>
-
           </Nav>
         </Navbar>
       </NavbarContainer>
     );
   }
+
+  toggleDropdown = () => {
+    this.setState({
+      isDropdownVisible: !this.state.isDropdownVisible
+    });
+  }
+
 }
 
 export default Header;
