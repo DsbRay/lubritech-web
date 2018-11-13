@@ -21,7 +21,7 @@ class MobileDropdown extends Component {
         </NavItem>
 
         <NavDropdown title="Gallery" id="basic-nav-dropdown" className="nav-item">
-          <MenuItem className="dropdown-item" href="/gallery">Images</MenuItem>
+          <MenuItem className="dropdown-item" href="/gallery/images">Images</MenuItem>
           <MenuItem className="dropdown-item" href="/gallery/videos">Videos</MenuItem>
         </NavDropdown>
 
