@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import Link from 'gatsby-link';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
+import { color } from '../utils/baseStyles';
 import styled from 'styled-components';
 import logo from '../../static/images/logo.png';
 const NavbarContainer = styled.div`
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  background-color: white!important;
+}
   @media (min-width: 1200px) {
   .main-nav {
+    margin-bottom: 0px;
+    background-color: ${color.white};
     .nav-header {
       .nav-brand {
         height: auto;
@@ -21,15 +27,23 @@ const NavbarContainer = styled.div`
       .nav-item {
         a {
           padding: 25px 15px;
+          color: ${color.black};
+          text-decoration: none;
+          font-weight: 700;
+          &:hover {
+            color: ${color.green};
+          }
         }
         .nav-dropdown {
 
         }
       }
     }
+    .caret {
+      color: ${color.blue};
+    }
   }
-  
-  }
+}
 `;
 
 class Header extends Component {
@@ -48,32 +62,26 @@ class Header extends Component {
           <Nav className="nav-list">
 
             <NavDropdown title="About Us" id="basic-nav-dropdown" className="nav-item">
-              <MenuItem className="dropdown-item">About Us</MenuItem>
+              <MenuItem className="dropdown-item" href="/about">About Us</MenuItem>
               <MenuItem className="dropdown-item">Company Profile</MenuItem>
               <MenuItem className="dropdown-item">Presentation</MenuItem>
             </NavDropdown>
 
-            <NavItem className="nav-item">
-              <Link to="/">
+            <NavItem href="/why-us" className="nav-item">
                 Why Us?
-              </Link>
             </NavItem>
 
-            <NavItem className="nav-item">
-              <Link to="/">
+            <NavItem href="/products" className="nav-item">
                 Products
-              </Link>
             </NavItem>
 
              <NavDropdown title="Gallery" id="basic-nav-dropdown" className="nav-item">
-              <MenuItem className="dropdown-item">Images</MenuItem>
-              <MenuItem className="dropdown-item">Videos</MenuItem>
+              <MenuItem className="dropdown-item" href="/gallery">Images</MenuItem>
+              <MenuItem className="dropdown-item" href="/gallery/videos">Videos</MenuItem>
             </NavDropdown>
 
-             <NavItem className="nav-item">
-              <Link to="/">
+             <NavItem href="/downloads" className="nav-item">
                 Downloads
-              </Link>
             </NavItem>
 
           </Nav>
