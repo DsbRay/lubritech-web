@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
+import styled from 'styled-components';
+import { color } from '../utils/baseStyles';
 
-const DownloadsPage = () => (
-  <div>
-    <h1>DownloadsPage</h1>
-  </div>
-)
+import Banner from '../components/pages/banner';
+
+class DownloadsPage extends Component {
+  render() {
+    return(
+      <div>
+        <Banner title="Downloads"/>
+      </div>
+    );
+  }
+}
 
 export default DownloadsPage
