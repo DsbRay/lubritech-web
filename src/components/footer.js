@@ -9,6 +9,8 @@ import logo from '../../static/images/logo.png';
 const FooterContainer = styled.div`
   padding: 30px 100px;
   text-align: center;
+  background-color: ${color.white};
+  border-top: 5px solid ${color.green};
   h3 {
     font-size: 16px;
     font-weight: 900;

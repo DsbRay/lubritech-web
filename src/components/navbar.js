@@ -8,12 +8,13 @@ import MobileDropdown from './navbar-mobile';
 
 const NavbarContainer = styled.div`
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-  background-color: white!important;
+  background-color: ${color.white}!important;
 }
 .main-nav {
   background-color: ${color.white};
   margin-bottom: 0px;
   min-height: 65px;
+  border-bottom: 5px solid ${color.green};
     .nav-header {
       .nav-brand {
         img {

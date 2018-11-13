@@ -1,36 +1,7 @@
 import React, { Component } from 'react'
-import styled from 'styled-components';
-import { color, Divider } from '../utils/baseStyles';
+import { Divider, PageContent } from '../utils/baseStyles';
 
 import Banner from '../components/pages/banner';
-
-const PageContent = styled.div`
-  text-align: center;
-  padding: 50px 30px;
-  p {
-    padding-bottom: 10px;
-  }
-  .section {
-    padding-bottom: 50px;
-    h3 {
-      padding-bottom: 30px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      .members {
-        padding-bottom: 30px;
-        p {
-          padding: 0px;
-          font-size: 16px;
-          &.title {
-            font-weight: 700;
-          }
-        }
-      }
-    }
-  }
-`;
 
 class AboutPage extends Component {
   render() {
@@ -48,8 +19,7 @@ class AboutPage extends Component {
           </div>
 
           <div className="section">
-            <h2>OUR TEAM</h2>
-            <Divider />
+            <h3 className="team">OUR TEAM</h3>
             <div className="grid">
               {
                 [

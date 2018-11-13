@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const color = {
-  white: '#fff',
+  white: '#F2F2F2',
   black: '#000',
 
   blue: '#1f76bb',
@@ -29,4 +29,57 @@ export const Divider = styled.button`
   height: 3px;
   display: block;
   margin: 10px auto;
+`;
+
+export const PageContent = styled.div`
+  text-align: center;
+  padding: 50px 30px;
+  p {
+    padding-bottom: 10px;
+  }
+  .section {
+    padding-bottom: 50px;
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 20px;
+      &.team {
+        padding-bottom: 30px;
+      }
+    }
+    .grid {
+      .members {
+        padding-bottom: 30px;
+        p {
+          padding: 0px;
+          font-size: 16px;
+          &.title {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+    &:last-child {
+      padding-bottom: 20px;
+    }
+  }
+  @media (min-width: 768px) {
+  p {
+  }
+  .section {
+    h3 {
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      .members {
+        p {
+          &.title {
+          }
+        }
+      }
+    }
+  }
+  }
 `;
