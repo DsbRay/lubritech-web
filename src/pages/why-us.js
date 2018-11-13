@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
+import styled from 'styled-components';
+import { color } from '../utils/baseStyles';
 
-const WhyUsPage = () => (
-  <div>
-    <h1>WhyUsPage</h1>
-  </div>
-)
+import Banner from '../components/pages/banner';
+
+class WhyUsPage extends Component {
+  render() {
+    return(
+      <div>
+        <Banner title="Why Us"/>
+      </div>
+    );
+  }
+}
 
 export default WhyUsPage
