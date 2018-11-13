@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 
-
-
 class MobileDropdown extends Component {
   render() {
     return (
