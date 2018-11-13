@@ -1,234 +1,168 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
-import styled from 'styled-components'
-// COMPONENTS
-import MobileDropdown from '../components/navbar-mobile'
-// UTILS
-import { color } from '../utils/baseStyles'
-// IMAGES
-import lubritechLogo from '../../static/images/logo.png'
-
+import React, { Component } from "react";
+import Link from 'gatsby-link';
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
+import { color } from '../utils/baseStyles';
+import styled from 'styled-components';
+import logo from '../../static/images/logo.png';
+import MobileDropdown from './navbar-mobile';
 
 const NavbarContainer = styled.div`
-  height: 60px;
-  @media (min-width: 768px) {
-    display: flex;
-    justify-content: space-between;
-    background-color: ${color.white};
-    height: 70px;
-    border-bottom: 3px solid ${color.green};
-    padding: 0px 10px;
-  }
-`;
-
-const Logo = styled.img`
-  width: 150px;
-  margin: 10px;
-  @media (min-width: 768px) {
-    width: 210px;
-    padding: 10px;
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0px;
-  }
-`;
-
-const NavLinks = styled.div`
-  display: none;
-  @media (min-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    ul {
-      li {
-        display: inline-block;
-        padding: 15px;
-        position: relative;
-        .underline {
-          width: 0px;
-          height: 2px;
-          background-color: ${color.green};
-        }
-        &:hover {
-          cursor: pointer;
-          p {
-            color: ${color.blue};
-            font-weight: bold;
-          }
-          .underline {
-            width: 100%;
-          }
-        }
-      }
-      a:hover {
-        color: ${color.blue};
-        font-weight: bold;
-      }
-    }
-  }
-`;
-
-const Dropdown = styled.div`
-  position: absolute;
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  background-color: white!important;
+}
+.main-nav {
   background-color: ${color.white};
-  z-index: -1;
-  font-size: 14px;
-  width: 100%;
-  left:-15px;
-  text-align: center;
-  border: 2px solid ${color.green};
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 10px;
-  transform: translateY(-135px);
-  &.about {
-    width: 150px;
-  }
-  &.gallery {
-    left: 5px;
-  }
-  &.active-dropdown {
-    transform: translateY(20px);
-    z-index: 0;
-  }
-  ul {
-    li {
-      display: block;
-      padding: 10px;
-      border-bottom: 1px solid ${color.green};
-      &.last{
-        border: none;
+  margin-bottom: 0px;
+  min-height: 65px;
+    .nav-header {
+      .nav-brand {
+        img {
+          width: 140px;
+        }
       }
     }
+    .nav-list {
+      &.desktop {
+        display: none;
+      }
+      .nav-item {
+        a {
+          text-align: center;
+          &:hover {
+          }
+        }
+        .nav-dropdown {
+        }
+      }
+    }
+    .caret {
+      display: none;
+    }
   }
+  @media (min-width: 768px) {
+  .main-nav {
+    .nav-header {
+      .nav-brand {
+        height: auto;
+        display: flex;
+        align-items: center;
+        img {
+          width: 180px;
+        }
+      }
+    }
+    .nav-list {
+      float: right;
+      &.desktop {
+        display: block;
+      }
+      .nav-item {
+        a {
+          padding: 25px 15px;
+          color: ${color.black};
+          text-decoration: none;
+          font-weight: 700;
+          &:hover {
+            color: ${color.green};
+          }
+        }
+        .nav-dropdown {
+
+        }
+      }
+    }
+    .caret {
+      color: ${color.blue};
+    }
+    .mobile {
+      display: none;
+    }
+  }
+}
 `;
 
-const ButtonDropdown = styled.div`
-  display: block;
+const DropdownButton = styled.div`
+  width: 30px;
+  height: 30px;
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
   div {
-    width: 30px;
-    height: 5px;
+    height: 3px;
+    margin: 5px 0px;
     background-color: ${color.blue};
-    margin: 5px 0;
+    width: 100%;
   }
   @media (min-width: 768px) {
     display: none;
   }
 `;
 
-class Navbar extends Component {
+class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      galleryDropdown: false,
-      aboutDropdown: false,
-      mobileMenuVisible: false
+      isDropdownVisible: false
     }
   }
   render() {
     return (
       <NavbarContainer>
-        <Link to="/">
-          <Logo src={lubritechLogo} />
-        </Link>
-        <ButtonDropdown onClick={this.toggleDropdownMenu}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </ButtonDropdown>
+        <Navbar className="main-nav">
 
-        {this.state.mobileMenuVisible &&
-          <MobileDropdown />
-        }
+          <Navbar.Header className="nav-header">
+            <Navbar.Brand className="nav-brand">
+              <Link to="/">
+                <img src={logo} />
+              </Link>
+            </Navbar.Brand>
+          </Navbar.Header>
 
-        <NavLinks>
-          <ul>
-            <li onClick={this.onChangeAboutDropdown}>
-              <p>About Us</p>
-              <div className="underline"></div>
-              <Dropdown className={this.state.aboutDropdown ? 'active-dropdown about' : 'about'}>
-                <ul>
-                  <Link to="/about">
-                    <li>
-                      About
-                    </li>
-                  </Link>
-                  <Link to="/about">
-                    <li>
-                    Company Profile
-                    </li>
-                  </Link>
-                  <Link to="/gallery/videos">
-                    <li className="last">
-                    Presentation
-                  </li>
-                  </Link>
-                </ul>
-              </Dropdown>
-            </li>
-            <Link to="/why-us" activeClassName="active-link">
-              <li>
-                Why Us
-                <div className="underline"></div>
-              </li>
-            </Link>
+          <DropdownButton onClick={this.toggleDropdown}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </DropdownButton>
 
-            <Link to="/products">
-              <li>
-                Products
-                <div className="underline"></div>
-              </li>
-            </Link>
+          {this.state.isDropdownVisible &&
+            <MobileDropdown />
+          }
+          <Nav className="nav-list desktop">
+            <NavDropdown title="About Us" id="basic-nav-dropdown" className="nav-item">
+              <MenuItem className="dropdown-item" href="/about">About Us</MenuItem>
+              <MenuItem className="dropdown-item">Company Profile</MenuItem>
+              <MenuItem className="dropdown-item">Presentation</MenuItem>
+            </NavDropdown>
 
-            <li onClick={this.onChangeGalleryDropdown}>
-              <p>Gallery</p>
-              <div className="underline"></div>
-              <Dropdown className={this.state.galleryDropdown ? 'active-dropdown gallery' : 'gallery'}>
-                <ul>
-                  <li>
-                    <Link to="/gallery">Images</Link>
-                  </li>
-                  <li className="last">
-                    <Link to="/gallery/videos">Videos</Link>
-                  </li>
-                </ul>
-              </Dropdown>
-            </li>
+            <NavItem href="/why-us" className="nav-item">
+              Why Us?
+            </NavItem>
 
-            <Link to="/downloads">
-              <li>
-                Downloads
-              <div className="underline"></div>
-              </li>
-            </Link>
+            <NavItem href="/products" className="nav-item">
+              Products
+            </NavItem>
 
-          </ul>
-        </NavLinks>
+            <NavDropdown title="Gallery" id="basic-nav-dropdown" className="nav-item">
+              <MenuItem className="dropdown-item" href="/gallery">Images</MenuItem>
+              <MenuItem className="dropdown-item" href="/gallery/videos">Videos</MenuItem>
+            </NavDropdown>
+
+            <NavItem href="/downloads" className="nav-item">
+              Downloads
+            </NavItem>
+          </Nav>
+        </Navbar>
       </NavbarContainer>
     );
   }
-  onChangeAboutDropdown = () => {
+
+  toggleDropdown = () => {
     this.setState({
-      aboutDropdown: !this.state.aboutDropdown,
-      galleryDropdown: false
-    })
+      isDropdownVisible: !this.state.isDropdownVisible
+    });
   }
 
-  onChangeGalleryDropdown = () => {
-    this.setState({
-      galleryDropdown: !this.state.galleryDropdown,
-      aboutDropdown: false
-    })
-  }
-
-  toggleDropdownMenu = () => {
-    this.setState({
-      mobileMenuVisible: !this.state.mobileMenuVisible
-    })
-  }
 }
 
-export default Navbar
+export default Header;

@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import 'bootstrap/dist/css/bootstrap.css';
-import Navbar from '../components/navbar'
+// COMPONENTS
+import Header from '../components/navbar'
 import Footer from '../components/footer'
-import './index.css'
+// STYLES
 import '../../node_modules/react-id-swiper/src/styles/css/swiper.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../node_modules/react-bootstrap/dist/react-bootstrap.min.js';
+import './index.css'
 
 const Layout = ({ children, data }) => (
   <div>
@@ -17,7 +20,7 @@ const Layout = ({ children, data }) => (
       ]}
     />
 
-    <Navbar />
+    <Header />
     <div>
       {children()}
     </div>
