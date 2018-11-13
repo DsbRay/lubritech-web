@@ -22,3 +22,11 @@ export const Button = styled.button`
     cursor: pointer;
   }
 `;
+
+export const Divider = styled.button`
+  background-color: ${color.green};
+  width: 20%;
+  height: 3px;
+  display: block;
+  margin: 10px auto;
+`;
