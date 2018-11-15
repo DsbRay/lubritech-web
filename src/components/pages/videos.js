@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import { color } from '../../utils/baseStyles';
-
-import Banner from '../../components/pages/banner';
 
 import video1 from '../../../static/images/gallery/videos/1.mp4';
 import video2 from '../../../static/images/gallery/videos/2.mp4';
@@ -31,7 +28,6 @@ class VideosPage extends Component {
   render() {
     return (
       <div>
-        <Banner title="Videos" />
         <VideoContainer>
           <Grid>
             <video controls>

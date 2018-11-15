@@ -6,8 +6,6 @@ import Header from '../components/navbar'
 import Footer from '../components/footer'
 // STYLES
 import '../../node_modules/react-id-swiper/src/styles/css/swiper.css';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../../node_modules/react-bootstrap/dist/react-bootstrap.min.js';
 import './index.css'
 
 const Layout = ({ children, data }) => (

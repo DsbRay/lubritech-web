@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import { color, Divider } from '../../utils/baseStyles';
-
-import Banner from '../../components/pages/banner';
+import { Divider } from '../../utils/baseStyles';
 
 import image1 from '../../../static/images/gallery/images/before/1.jpg'
 import image2 from '../../../static/images/gallery/images/apply/2.jpg'
@@ -34,8 +32,6 @@ class ImagesPage extends Component {
   render() {
     return (
       <div>
-        <Banner title="Images" />
-
         <ImageContainer>
           <h4>Before the application of HTECH</h4>
           <Divider />

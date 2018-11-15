@@ -1,169 +1,198 @@
 import React, { Component } from "react";
-import Link from 'gatsby-link';
-import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
-import { color } from '../utils/baseStyles';
 import styled from 'styled-components';
 import logo from '../../static/images/logo.png';
-import MobileDropdown from './navbar-mobile';
+import Link from 'gatsby-link';
+
+
 
 const NavbarContainer = styled.div`
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-  background-color: ${color.white}!important;
-}
-.main-nav {
-  background-color: ${color.white};
-  margin-bottom: 0px;
-  min-height: 65px;
-  border-bottom: 5px solid ${color.green};
-    .nav-header {
-      .nav-brand {
-        img {
-          width: 140px;
-        }
-      }
-    }
-    .nav-list {
-      &.desktop {
-        display: none;
-      }
-      .nav-item {
-        a {
-          text-align: center;
-          &:hover {
-          }
-        }
-        .nav-dropdown {
-        }
-      }
-    }
-    .caret {
-      display: none;
-    }
+  /* position: fixed; */
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 999;
+  @media (min-width: 1024px) {
+    flex-wrap: wrap;
   }
-  @media (min-width: 768px) {
-  .main-nav {
-    .nav-header {
-      .nav-brand {
-        height: auto;
-        display: flex;
-        align-items: center;
-        img {
-          width: 180px;
-        }
-      }
-    }
-    .nav-list {
-      float: right;
-      &.desktop {
-        display: block;
-      }
-      .nav-item {
-        a {
-          padding: 25px 15px;
-          color: ${color.black};
-          text-decoration: none;
-          font-weight: 700;
-          &:hover {
-            color: ${color.green};
-          }
-        }
-        .nav-dropdown {
-
-        }
-      }
-    }
-    .caret {
-      color: ${color.blue};
-    }
-    .mobile {
-      display: none;
-    }
-  }
-}
 `;
-
-const DropdownButton = styled.div`
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  cursor: pointer;
-  div {
-    height: 3px;
-    margin: 5px 0px;
-    background-color: ${color.blue};
-    width: 100%;
+const NavbarBrand = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(50%);
+  padding: 0 1.5rem;
+  img {
+    width: 200px;
+    height: auto;
+    margin: 0px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
+    width: auto;
+    flex-grow: 1;
+  }
+`;
+const NavbarButton = styled.div`
+  position: relative;
+  width: calc(50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 1rem 1.5rem;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 15px;
+    span {
+      height: 2px;
+      background-color: #000;
+    }
+  }
+  @media (min-width: 1024px) {
     display: none;
+  }
+`;
+const NavbarMenu = styled.div`
+  width: 100%;
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    transition: height 350ms ease;
+    height: 0;
+    justify-content: space-around;
+    box-shadow: inset rgba($color: #000, $alpha: 1) 0px 0px 15px -5px;
+    a {
+      &.active {
+          span {
+             opacity: 1;
+          }
+      }
+   }
+    li {
+      margin: 0px;
+      list-style: none;
+      padding: 1rem 2rem;
+      color: #4e7891;
+      position: relative;
+      text-align: center;
+      a {
+        text-decoration: none;
+        font-size: 1rem;
+        color: inherit;
+        font-weight: 400;
+      }
+      span {
+        position: absolute;
+        height: 2px;
+        width: calc(100% - 4rem);
+        background-color: #CB4541;
+        bottom: 1rem;
+        left: 2rem;
+        opacity: 0;
+        transition: opacity 250ms ease;
+      }
+    }
+    &.open {
+      height: 235px;
+    }
+  }
+  @media (min-width: 1024px) {
+    flex-grow: 2;
+    width: auto;
+    ul {
+      flex-direction: row;
+      justify-content: flex-end;
+      height: auto !important;
+      box-shadow: inset rgba($color: #000, $alpha: 0) 0px 0px 15px -5px;
+      li {
+        padding: 1.5rem 2rem;
+      &:hover {
+        cursor: pointer;
+        span {
+          opacity: 1;
+        }
+      }
+      }
+    }
   }
 `;
 
 class Header extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      isDropdownVisible: false
-    }
+      navShow: false
+    };
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
+
+  toggleMenu() {
+    this.setState({ navShow: !this.state.navShow });
+  }
+
   render() {
     return (
       <NavbarContainer>
-        <Navbar className="main-nav">
-
-          <Navbar.Header className="nav-header">
-            <Navbar.Brand className="nav-brand">
-              <Link to="/">
-                <img src={logo} />
-              </Link>
-            </Navbar.Brand>
-          </Navbar.Header>
-
-          <DropdownButton onClick={this.toggleDropdown}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </DropdownButton>
-
-          {this.state.isDropdownVisible &&
-            <MobileDropdown />
-          }
-          <Nav className="nav-list desktop">
-            <NavDropdown title="About Us" id="basic-nav-dropdown" className="nav-item">
-              <MenuItem className="dropdown-item" href="/about">About Us</MenuItem>
-              <MenuItem className="dropdown-item">Company Profile</MenuItem>
-              <MenuItem className="dropdown-item">Presentation</MenuItem>
-            </NavDropdown>
-
-            <NavItem href="/why-us" className="nav-item">
-              Why Us?
-            </NavItem>
-
-            <NavItem href="/products" className="nav-item">
-              Products
-            </NavItem>
-
-            <NavDropdown title="Gallery" id="basic-nav-dropdown" className="nav-item">
-              <MenuItem className="dropdown-item" href="/gallery/images">Images</MenuItem>
-              <MenuItem className="dropdown-item" href="/gallery/videos">Videos</MenuItem>
-            </NavDropdown>
-
-            <NavItem href="/downloads" className="nav-item">
-              Downloads
-            </NavItem>
-          </Nav>
-        </Navbar>
+        <NavbarBrand>
+          <Link to="/">
+            <img src={logo} alt="One PLus One Accounting"/>
+          </Link>
+        </NavbarBrand>
+        <NavbarButton>
+          <div onClick={this.toggleMenu}>
+            <span />
+            <span />
+            <span />
+          </div>
+        </NavbarButton>
+        <NavbarMenu>
+          <ul className={`${this.state.navShow ? "open" : ""}`}>
+             <Link to="/">
+                <li>
+                   Home
+                   <span></span>
+                </li>
+            </Link>
+            <Link to="/about">
+               <li>
+                  About Us
+                  <span></span>
+               </li>
+            </Link>
+            <Link to="/why-us">
+               <li>
+                  Why Us ?
+                  <span></span>
+               </li>
+            </Link>
+            <Link to="/products">
+               <li>
+                  Products
+                  <span></span>
+               </li>
+            </Link>
+            <Link to="/gallery">
+               <li>
+                  Gallery
+                  <span></span>
+               </li>
+            </Link>
+            <Link to="/downloads">
+               <li>
+                  Downloads
+                  <span></span>
+               </li>
+            </Link>
+          </ul>
+        </NavbarMenu>
       </NavbarContainer>
     );
   }
-
-  toggleDropdown = () => {
-    this.setState({
-      isDropdownVisible: !this.state.isDropdownVisible
-    });
-  }
-
 }
 
 export default Header;
