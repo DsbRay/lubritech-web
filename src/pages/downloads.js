@@ -45,7 +45,7 @@ class DownloadsPage extends Component {
       <div>
         <Banner title="Downloads"/>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} method="POST" netlify>
           <p>
             <label>
               Your Name: <input type="text" name="name" value={name} onChange={this.handleChange} />
