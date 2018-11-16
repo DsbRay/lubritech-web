@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import { color, Button } from '../utils/baseStyles';
+import { color, Button, Divider } from '../utils/baseStyles';
 
 import Banner from '../components/pages/banner';
 
@@ -13,6 +13,8 @@ import htechFeasabilityReport from '../../static/pdf/htech-feasability-report.pd
 import htechHydrocarbonEliminator from '../../static/pdf/htech-hydrocarbon-eliminator-web.pdf';
 import lubritechBee from '../../static/pdf/lubritech-manufacturing-bee.pdf';
 import stdTest from '../../static/pdf/std-test.pdf';
+
+import download from '../../static/images/download.png';
 
 const FormContainer = styled.div`
   text-align:center;
@@ -45,6 +47,20 @@ const FormContainer = styled.div`
 
 const DownloadsContainer = styled.div`
    padding: 30px;
+   text-align: center;
+   .download-link {
+     padding-top: 20px;
+   }
+   a {
+     transition: opacity 0.25s ease;
+     img {
+       padding-top: 10px;
+       max-width: 30px;
+     }
+     &:hover {
+       opacity: 0.5;
+     }
+   }
 `;
 
 const encode = (data) => {
@@ -111,50 +127,68 @@ class DownloadsPage extends Component {
           </FormContainer>
         }
 
-       {this.state.formSuccess && 
-         <DownloadsContainer>
-           <h3>SUCCESS</h3>
-           <div>
-              <div>
-                <h4>title</h4>
-                <a href={htechDataSheet} target="_blank">1</a>
-                <i className="fa fa-twitter"></i>
+        {this.state.formSuccess &&
+          <DownloadsContainer>
+            <h2>SUCCESS</h2>
+            <Divider />
+            <div>
+              <div className="download-link">
+                <h4>HTECH PRODUCT DATA SHEET (Mining)</h4>
+                <a href={htechDataSheet} target="_blank">
+                  <img src={download} />
+                </a>
               </div>
-              <div>
-                <h4>title</h4>
-                <a href={mtechDegreaserPDS} target="_blank"></a>
+              <div className="download-link">
+                <h4>MTECH-DEGREASER PDS</h4>
+                <a href={mtechDegreaserPDS} target="_blank">
+                  <img src={download} />
+                </a>
               </div>
-              <div>
-                <h4>title</h4>
-                <a href={biodegradabilityCertificate} target="_blank"></a>
+              <div className="download-link">
+                <h4>BIODEGRADABILITY CERTIFICATE (M&BTech)</h4>
+                <a href={biodegradabilityCertificate} target="_blank">
+                  <img src={download} />
+                </a>
               </div>
-              <div>
-                <h4>title</h4>
-                <a href={chromeGradeVsDosage} target="_blank"></a>
+              <div className="download-link">
+                <h4>CHROME GRADE VS DOSAGE</h4>
+                <a href={chromeGradeVsDosage} target="_blank">
+                  <img src={download} />
+                </a>
               </div>
-              <div>
-                <h4>title</h4>
-                <a href={disfloPtTest} target="_blank"></a>
+              <div className="download-link">
+                <h4>DISFLO-PT TEST</h4>
+                <a href={disfloPtTest} target="_blank">
+                  <img src={download} />
+                </a>
               </div>
-              <div>
-                <h4>title</h4>
-                <a href={htechFeasabilityReport} target="_blank"></a>
+              <div className="download-link">
+                <h4>HTECH FEASABILITY REPORT</h4>
+                <a href={htechFeasabilityReport} target="_blank">
+                  <img src={download} />
+                </a>
               </div>
-              <div>
-                <h4>title</h4>
-                <a href={htechHydrocarbonEliminator} target="_blank"></a>
+              <div className="download-link">
+                <h4>HTECH HYDROCARBON ELIMINATOR WEB</h4>
+                <a href={htechHydrocarbonEliminator} target="_blank">
+                  <img src={download} />
+                </a>
               </div>
-              <div>
-                <h4>title</h4>
-                <a href={lubritechBee} target="_blank"></a>
+              <div className="download-link">
+                <h4>LUBRITECH MANUFACTURING B-BBEE CERTIFICATE</h4>
+                <a href={lubritechBee} target="_blank">
+                  <img src={download} />
+                </a>
               </div>
-              <div>
-                <h4>title</h4>
-                <a href={stdTest} target="_blank"></a>
+              <div className="download-link">
+                <h4>STD TEST</h4>
+                <a href={stdTest} target="_blank">
+                  <img src={download} />
+                </a>
               </div>
-           </div>
-         </DownloadsContainer>
-      }
+            </div>
+          </DownloadsContainer>
+        }
       </div>
     );
   }
