@@ -5,11 +5,6 @@ import { color, Button, Divider } from '../utils/baseStyles';
 import Banner from '../components/pages/banner';
 import FileDownloads from '../components/pages/downloads';
 
-import presentation from '../../static/pdf/H-Tech-Hydrocarbon-Convertor-Final.pdf';
-import profile from '../../static/pdf/Company-Profile.pdf';
-
-import download from '../../static/images/download.png'
-
 const FormContainer = styled.div`
   text-align:center;
   form {
@@ -39,28 +34,6 @@ const FormContainer = styled.div`
   }
 `;
 
-const OpenDownloads =styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  div {
-    margin: 50px;
-    p {
-      font-size: 1rem;
-      padding-bottom: 10px;
-    }
-    img {
-      transition: opacity 0.25s ease;
-      width: 30px;
-    }
-    &:hover {
-      img {
-        opacity: 0.5;
-      }
-    }
-  }
-`
 const Header = styled.div`
   padding-top: 30px;
 `;
@@ -133,20 +106,6 @@ class DownloadsPage extends Component {
             </form>
           </FormContainer>
         }
-        <OpenDownloads>
-            <div>
-              <a href={presentation} target="_blank">
-                <p>Presentation</p>
-                <img src={download} />
-              </a>
-            </div>
-            <div>
-              <a href={profile} target="_blank">
-                <p>Company Profile</p>
-                <img src={download} />
-              </a>
-            </div>
-          </OpenDownloads>
         {this.state.formSuccess &&
           <FileDownloads />
         }

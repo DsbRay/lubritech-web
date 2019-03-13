@@ -1,7 +1,35 @@
 import React, { Component } from 'react'
 import { Divider, PageContent } from '../utils/baseStyles';
+import styled from 'styled-components'
 
 import Banner from '../components/pages/banner';
+import presentation from '../../static/pdf/H-Tech-Hydrocarbon-Convertor-Final.pdf';
+import profile from '../../static/pdf/Company-Profile.pdf';
+
+import download from '../../static/images/download.png'
+
+const OpenDownloads =styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  div {
+    margin: 0px 50px;
+    p {
+      font-size: 1rem;
+      padding-bottom: 10px;
+    }
+    img {
+      transition: opacity 0.25s ease;
+      width: 30px;
+    }
+    &:hover {
+      img {
+        opacity: 0.5;
+      }
+    }
+  }
+`
 
 class AboutPage extends Component {
   render() {
@@ -57,7 +85,24 @@ class AboutPage extends Component {
               }
             </div>
           </div>
-
+          
+          <div className="section">
+            <OpenDownloads>
+              <div>
+                <a href={presentation} target="_blank">
+                  <p>Presentation</p>
+                  <img src={download} />
+                </a>
+              </div>
+              <div>
+                <a href={profile} target="_blank">
+                  <p>Company Profile</p>
+                  <img src={download} />
+                </a>
+              </div>
+            </OpenDownloads>
+          </div>
+          
           <div className="section">
               <h2>CORE BUSINESS</h2>
               <Divider />
