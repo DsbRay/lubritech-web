@@ -86,7 +86,7 @@ class DownloadsPage extends Component {
   }
 
   render() {
-    const { name, email, message, loading } = this.state;
+    const { name, email, message } = this.state;
     return (
       <div>
         <Banner title="Downloads" />
@@ -111,7 +111,7 @@ class DownloadsPage extends Component {
                 <textarea name="message" value={message} onChange={this.handleChange} />
               </div>
                 <Button type="submit">
-                  {loading ? (
+                  {this.state.loading ? (
                     <Spinner />
                   ) : (
                     <p>SEND</p>
