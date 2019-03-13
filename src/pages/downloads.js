@@ -4,10 +4,14 @@ import { color, Button, Divider } from '../utils/baseStyles';
 
 import Banner from '../components/pages/banner';
 import FileDownloads from '../components/pages/downloads';
+import Spinner from '../components/spinner'
 
 const FormContainer = styled.div`
   text-align:center;
   form {
+    button {
+      min-width: 100px;
+    }
     .item {
       label, input, textarea {
         display: block;
@@ -51,11 +55,13 @@ class DownloadsPage extends Component {
       name: "",
       email: "",
       message: "",
-      formSuccess: false
+      formSuccess: false,
+      loading: false
     };
   }
 
   handleSubmit = e => {
+    this.setState({loading: true})
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -67,7 +73,7 @@ class DownloadsPage extends Component {
         })
       })
       .catch(error => alert(error));
-
+      this.setState({loading: false})
     e.preventDefault();
   };
 
@@ -78,7 +84,7 @@ class DownloadsPage extends Component {
   }
 
   render() {
-    const { name, email, message } = this.state;
+    const { name, email, message, loading } = this.state;
     return (
       <div>
         <Banner title="Downloads" />
@@ -102,7 +108,15 @@ class DownloadsPage extends Component {
                 <label>Message</label>
                 <textarea name="message" value={message} onChange={this.handleChange} />
               </div>
-              <Button type="submit">Send</Button>
+              {loading ? (
+                <Button type="submit">
+                  <Spinner />
+                </Button>
+              ) : (
+                <Button type="submit">
+                  SEND
+                </Button>
+              )}
             </form>
           </FormContainer>
         }
