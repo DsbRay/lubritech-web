@@ -108,15 +108,13 @@ class DownloadsPage extends Component {
                 <label>Message</label>
                 <textarea name="message" value={message} onChange={this.handleChange} />
               </div>
-              {loading ? (
                 <Button type="submit">
-                  <Spinner />
+                  {loading ? (
+                    <Spinner />
+                  ) : (
+                    SEND
+                  )}
                 </Button>
-              ) : (
-                <Button type="submit">
-                  SEND
-                </Button>
-              )}
             </form>
           </FormContainer>
         }
