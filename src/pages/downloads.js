@@ -62,19 +62,21 @@ class DownloadsPage extends Component {
 
   handleSubmit = e => {
     this.setState({loading: true})
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state })
-    })
-      .then(() => {
-        this.setState({
-          formSuccess: true
-        })
+    if (this.state.name != '' || this.state.email != '') {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...this.state })
       })
-      .catch(error => alert(error));
-      this.setState({loading: false})
-    e.preventDefault();
+        .then(() => {
+          this.setState({
+            formSuccess: true
+          })
+        })
+        .catch(error => alert(error));
+        this.setState({loading: false})
+      e.preventDefault();
+    }
   };
 
   handleChange = (e) => {
@@ -112,7 +114,7 @@ class DownloadsPage extends Component {
                   {loading ? (
                     <Spinner />
                   ) : (
-                    SEND
+                    <p>SEND</p>
                   )}
                 </Button>
             </form>
