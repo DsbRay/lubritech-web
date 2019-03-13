@@ -78,7 +78,7 @@ class DownloadsPage extends Component {
       name: "",
       email: "",
       message: "",
-      formSuccess: true
+      formSuccess: false
     };
   }
 
