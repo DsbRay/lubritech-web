@@ -68,7 +68,7 @@ const Footer = () => (
       <h3>Contact Us</h3>
       <Divider />
       <p>Email:</p>
-      <a href="mailto:info@lubritech.co.za?Subject=Hello">info@lubritech.co.za</a>
+      <a href="mailto:info@lubritechm.com?Subject=Hello">info@lubritechm.com</a>
       <p>Call:</p>
       <a href="tel:+27861000487">0861 000 487</a>
     </div>

@@ -11,7 +11,6 @@ import image3 from '../../static/images/home-slider/3.jpg';
 
 const Container = styled.div`
   position: relative;
-  z-index: -5;
   .swiper-container {
     .swiper-wrapper {
       height: calc(100vh - 70px);
@@ -48,7 +47,10 @@ const CircleImage = styled.div`
   border: 5px solid ${color.blue};
   h1 {
     span {
-
+      color: ${color.blue};
+      &.green {
+        color: ${color.green};
+      }
     }
   }
   p {
@@ -67,19 +69,21 @@ class LandingPage extends Component {
     }
     return (
       <Container>
+        <div>
         <Swiper {...params}>
           <SwiperBackground className="background-1" />
           <SwiperBackground className="background-2" />
           <SwiperBackground className="background-3" />
         </Swiper>
+        </div>
 
         <CircleImage>
           <div>
             <h1>WELCOME TO</h1>
-            <h1>LUBRITECH</h1>
+            <h1><span>LUBRI</span><span className="green">TECH</span></h1>
             <p className="bold">MANUFACTURING (Pty) Ltd</p>
             <p>Lubritech Manufacturing specialises in Hydrocarbon Contamination Control and Reagent Formulation for the Mining Industry.</p>
-            <Link to="/">
+            <Link to="/about">
               <Button>LEARN MORE</Button>
             </Link>
           </div>

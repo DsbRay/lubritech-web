@@ -26,26 +26,26 @@ class AboutPage extends Component {
                   {
                     "title": 'Director',
                     "name": 'Ms Lungile Njara',
-                    "email": 'lungile@lubritechm.co.za'
+                    "email": 'lungile@lubritechm.com'
                   },
                   {
-                    "title": 'Managing Director',
+                    "title": '',
                     "name": 'Mr Bevis Rodda',
-                    "email": 'bevis@lubritechm.co.za'
+                    "email": 'bevis@lubritechm.com'
                   },
                   {
                     "title": 'Sales',
                     "name": 'Mr Ferdi van den Berg',
-                    "email": 'ferdi@lubritechm.co.za'
+                    "email": 'ferdi@lubritechm.com'
                   },
                   {
                     "title": 'Technical',
-                    "email": 'info@lubritechm.co.za'
+                    "email": 'info@lubritechm.com'
                   },
                   {
                     "title": 'Administration',
-                    "name": 'Ms Lucinda Jones',
-                    "email": 'accounts@lubritechm.co.za'
+                    "name": 'Ms Joanne Gavson',
+                    "email": 'accounts@lubritechm.com'
                   }
                 ].map((i, index) =>
                   <div key={index} className="members">
