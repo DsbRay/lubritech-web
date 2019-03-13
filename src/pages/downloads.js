@@ -114,7 +114,7 @@ class DownloadsPage extends Component {
           <Header>
             <h2>FILL IN YOUR DETAILS TO DOWNLOAD THE FOLLOWING</h2>
             <Divider />
-            <p>Product MSDS Sheets | Product Data Sheets | Customer Reports | Test Results | HTech Presentation</p>
+            <p>Product MSDS Sheets | Product Data Sheets | Customer Reports | Test Results | HTech Presentation | B-BBEE Certificate</p>
           </Header>
             <form onSubmit={this.handleSubmit} name="contact" data-netlify="true" data-netlify-honeypot="bot">
               <div className="item">
