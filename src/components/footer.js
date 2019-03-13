@@ -15,6 +15,12 @@ const FooterContainer = styled.div`
     font-size: 16px;
     font-weight: 900;
   }
+  a {
+    transition: color 0.25s ease;
+    &:hover {
+      color: ${color.green};
+    }
+  }
   p, a {
     font-size: 12px;
     display: block;
@@ -76,12 +82,12 @@ const Footer = () => (
       <img src={logo} />
     </div>
     <div className="contact-block">
-      <Link to="/">About Us</Link>
-      <Link to="/">Why Us?</Link>
-      <Link to="/">Linkroducts</Link>
-      <Link to="/">Images</Link>
-      <Link to="/">Videos</Link>
-      <Link to="/">Downloads</Link>
+      <Link to="/about">About Us</Link>
+      <Link to="/why-us">Why Us?</Link>
+      <Link to="/products">Products</Link>
+      <Link to="/gallery">Images</Link>
+      <Link to="/gallery">Videos</Link>
+      <Link to="/downloads">Downloads</Link>
     </div>
   </FooterContainer>
 )

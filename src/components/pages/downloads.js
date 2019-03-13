@@ -9,7 +9,7 @@ import chromeGradeVsDosage from '../../../static/pdf/chrome-grade-vs-dosage.pdf'
 import disfloPtTest from '../../../static/pdf/disflo-pt-test.pdf';
 import htechFeasabilityReport from '../../../static/pdf/htech-feasability-report.pdf';
 import htechHydrocarbonEliminator from '../../../static/pdf/htech-hydrocarbon-eliminator-web.pdf';
-import lubritechBee from '../../../static/pdf/lubritech-manufacturing-bee.pdf';
+import lubritechBee from '../../../static/pdf/LTM-B-BBEE-level2-(Oct1819).pdf';
 import stdTest from '../../../static/pdf/std-test.pdf';
 
 import download from '../../../static/images/download.png';

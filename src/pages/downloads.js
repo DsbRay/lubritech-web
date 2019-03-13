@@ -78,7 +78,7 @@ class DownloadsPage extends Component {
       name: "",
       email: "",
       message: "",
-      formSuccess: false
+      formSuccess: true
     };
   }
 
@@ -90,7 +90,7 @@ class DownloadsPage extends Component {
     })
       .then(() => {
         this.setState({
-          formSuccess: false
+          formSuccess: true
         })
       })
       .catch(error => alert(error));
