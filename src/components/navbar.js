@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import logo from '../../static/images/logo.png';
 import Link from 'gatsby-link';
 
+import {color} from '../utils/baseStyles';
 
 
 const NavbarContainer = styled.div`
-  /* position: fixed; */
   background-color: #fff;
   width: 100%;
   display: flex;
@@ -77,7 +77,7 @@ const NavbarMenu = styled.div`
       margin: 0px;
       list-style: none;
       padding: 1rem 2rem;
-      color: #4e7891;
+      color: ${color.blue};
       position: relative;
       text-align: center;
       a {
@@ -90,7 +90,7 @@ const NavbarMenu = styled.div`
         position: absolute;
         height: 2px;
         width: calc(100% - 4rem);
-        background-color: #CB4541;
+        background-color: ${color.green};
         bottom: 1rem;
         left: 2rem;
         opacity: 0;
