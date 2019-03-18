@@ -8,7 +8,12 @@ import image3 from '../../../static/images/gallery/images/apply/3.jpg'
 import image4 from '../../../static/images/gallery/images/apply/4.jpg'
 import image5 from '../../../static/images/gallery/images/comparison/5.jpg'
 import image6 from '../../../static/images/gallery/images/after/6.jpg'
-import image7 from '../../../static/images/gallery/images/after/7.jpg'
+
+import image7 from '../../../static/images/gallery/images/after-1.png'
+import image8 from '../../../static/images/gallery/images/after-2.png'
+import image9 from '../../../static/images/gallery/images/before-1.png'
+import image10 from '../../../static/images/gallery/images/before-and-after.jpg'
+
 
 const ImageContainer = styled.div`
   text-align: center;
@@ -23,8 +28,10 @@ const GridContainer = styled.div`
   grid-gap: 30px;
   padding-top: 30px;
   @media (min-width: 768px) {
-  grid-template-columns: repeat(2, 1fr);
-  
+  grid-template-columns: repeat(3, 1fr);
+  &.grid-3 {
+    grid-template-columns: repeat(3, 1fr)
+;  }
   }
 `;
 
@@ -33,41 +40,54 @@ class ImagesPage extends Component {
     return (
       <div>
         <ImageContainer>
-          <h4>Before the application of HTECH</h4>
-          <Divider />
-          <GridContainer>
+          {/* <h4>Before the application of HTECH</h4> */}
+          {/* <Divider /> */}
+          <GridContainer className="grid-3">
             <div>
               <img src={image1} />
             </div>
-          </GridContainer>
-          <h4>Applying HTECH</h4>
-          <Divider />
-          <GridContainer>
-            <div>
-              <img src={image2} />
-            </div> 
             <div>
               <img src={image3} />
             </div>
             <div>
-              <img src={image4}/>
+              <img src={image6} />
             </div>
           </GridContainer>
-          <h4>Comparison of the same area, area on the left has been treated</h4>
-          <Divider />
+          {/* <h4>Applying HTECH</h4> */}
+          {/* <Divider /> */}
           <GridContainer>
+            <div>
+              <img src={image2} />
+            </div> 
+          </GridContainer>
+          {/* <h4>Comparison of the same area, area on the left has been treated</h4> */}
+          {/* <Divider /> */}
+          <GridContainer>
+            <div>
+              <img src={image4}/>
+            </div>
             <div>
               <img src={image5} />
             </div>
           </GridContainer>
-          <h4>After the application of HTECH</h4>
-          <Divider />
+          {/* <h4>After the application of HTECH</h4> */}
+          {/* <Divider /> */}
           <GridContainer>
             <div>
-              <img src={image6} />
+              <img src={image9} />
             </div>
             <div>
-              <img src={image7}/>
+              <img src={image7} />
+            </div>
+          </GridContainer>
+          <GridContainer>
+            <div>
+              <img src={image8} />
+            </div>
+          </GridContainer>
+          <GridContainer>
+            <div>
+              <img src={image10} />
             </div>
           </GridContainer>
         </ImageContainer>
