@@ -76,7 +76,7 @@ const Footer = () => (
       <p>Email:</p>
       <a href="mailto:info@lubritechm.com?Subject=Hello">info@lubritechm.com</a>
       <p>Call:</p>
-      <a href="tel:+27861000487">0861 000 487</a>
+      <a href="tel:+27861000487">+27 861 000 487</a>
     </div>
     <div className="contact-block">
       <img src={logo} />
