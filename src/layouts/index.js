@@ -18,12 +18,12 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    {/* <ComingSoon /> */}
-    <Header />
+    <ComingSoon />
+    {/* <Header />
     <div>
       {children()}
     </div>
-    <Footer />
+    <Footer /> */}
   </div>
 )
 
