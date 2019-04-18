@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 // COMPONENTS
 import Header from '../components/navbar'
 import Footer from '../components/footer'
-import ComingSoon from '../components/coming-soon'
+// import ComingSoon from '../components/coming-soon'
 // STYLES
 import '../../node_modules/react-id-swiper/src/styles/css/swiper.css';
 import './index.css'
@@ -18,12 +18,12 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <ComingSoon />
-    {/* <Header />
+    {/* <ComingSoon /> */}
+    <Header />
     <div>
       {children()}
     </div>
-    <Footer /> */}
+    <Footer />
   </div>
 )
 
