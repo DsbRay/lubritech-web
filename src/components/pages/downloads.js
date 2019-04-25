@@ -57,18 +57,18 @@ class FileDownloads extends Component {
               <img src={download} />
             </a>
           </div>
-          <div className="download-link">
+          {/* <div className="download-link">
             <h4>CHROME GRADE VS DOSAGE</h4>
             <a href={chromeGradeVsDosage} target="_blank">
               <img src={download} />
             </a>
-          </div>
-          <div className="download-link">
+          </div> */}
+          {/* <div className="download-link">
             <h4>DISFLO-PT TEST</h4>
             <a href={disfloPtTest} target="_blank">
               <img src={download} />
             </a>
-          </div>
+          </div> */}
           <div className="download-link">
             <h4>HTECH FEASABILITY REPORT</h4>
             <a href={htechFeasabilityReport} target="_blank">
@@ -87,12 +87,12 @@ class FileDownloads extends Component {
               <img src={download} />
             </a>
           </div>
-          <div className="download-link">
+          {/* <div className="download-link">
             <h4>STD TEST</h4>
             <a href={stdTest} target="_blank">
               <img src={download} />
             </a>
-          </div>
+          </div> */}
         </div>
       </DownloadsContainer>
     )
