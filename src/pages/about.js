@@ -3,7 +3,7 @@ import { Divider, PageContent } from "../utils/baseStyles";
 import styled from "styled-components";
 
 import Banner from "../components/pages/banner";
-import presentation from "../../static/pdf/H-Tech-Hydrocarbon-Convertor-Final.pdf";
+import presentation from "../../static/pdf/presentation.pdf";
 import profile from "../../static/pdf/Company-Profile.pdf";
 
 import download from "../../static/images/download.png";
