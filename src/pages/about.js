@@ -59,27 +59,27 @@ class AboutPage extends Component {
                 {
                   title: "Director",
                   name: "Ms Lungile Njara",
-                  email: "lungile@lubritechm.com"
+                  email: "lungile@lubritechm.com",
                 },
                 {
                   title: "",
                   name: "Mr Bevis Rodda",
-                  email: "bevis@lubritechm.com"
+                  email: "bevis@lubritechm.com",
                 },
                 {
                   title: "Sales",
                   name: "Mr Ferdi van den Berg",
-                  email: "ferdi@lubritechm.com"
+                  email: "ferdi@lubritechm.com",
                 },
                 {
                   title: "Technical",
-                  email: "info@lubritechm.com"
+                  email: "info@lubritechm.com",
                 },
                 {
                   title: "Administration",
-                  name: "Ms Joanne Gavson",
-                  email: "accounts@lubritechm.com"
-                }
+                  name: "",
+                  email: "accounts@lubritechm.com",
+                },
               ].map((i, index) => (
                 <div key={index} className="members">
                   <p className="title">{i.title}</p>
